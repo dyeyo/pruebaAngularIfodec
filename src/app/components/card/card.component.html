@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <input type="text" class="form-control" placeholder="Buscar por nombre de personaje" [(ngModel)]="filterSkin"
+    (change)="busco()">
+  <div class="row mt-3">
+    <div class="col-md-3"
+      *ngFor="let item of dataApi | paginate: { itemsPerPage: 18, currentPage: p } | filterPipe:filterSkin ">
+      <div class="card">
+        <div class="row p-2 mr-1 mt-5">
+          <div class="col-4">
+            <img class="card-img-top" style="width: 6em;" [src]="item.avatar" alt="{{item.first_name}}">
+          </div>
+          <div class="col-8">
+            <div>
+              <h5 class="card-title">{{item.first_name}} {{item.last_name}}</h5>
+              <span class="badge badge-pill badge-secondary">{{item.email}}</span>
+              <span class="badge badge-pill badge-secondary">{{item.gender}}</span>
+            </div>
+            <div>
+              <button class="btn btn-lg btn-outline-primary btn-sm" (click)="open(item)">Ver detalles</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <pagination-controls (pageChange)="p = $event" nextLabel="Siguiente" previousLabel="Anterior">
+    </pagination-controls>
+  </div>
+</div>

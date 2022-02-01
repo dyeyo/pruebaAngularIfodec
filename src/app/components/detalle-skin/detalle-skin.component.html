@@ -1,0 +1,11 @@
+<button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+  <span aria-hidden="true">&times;</span>
+</button>
+<div class="card">
+  <img [src]="skin.avatar" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{skin.first_name}} {{skin.last_name}}</h5>
+    <span class="badge badge-pill badge-secondary">Correo: {{skin.email}}</span>
+    <span class="badge badge-pill badge-secondary">Genero: {{skin.gender}}</span>
+  </div>
+</div>
